@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "deepseek": {
+      "models": {
+        "deepseek-v4-flash": {
+          "options": {
+            "thinking": {
+              "type": "disabled"
+            }
+          }
+        }
+      }
+    }
+  },
+  "permission": {
+    "question": "deny"
+  }
+}

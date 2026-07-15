@@ -1,0 +1,31 @@
+# EvoSkill OfficeQA smoke configuration using DeepSeek via OpenCode.
+# This keeps the official example data and core code unchanged while limiting
+# the end-to-end verification to one low-cost evolution iteration.
+
+[harness]
+name = "opencode"
+model = "deepseek/deepseek-v4-flash"
+data_dirs = [
+    "data/treasury_bulletins",
+]
+timeout_seconds = 600
+max_retries = 1
+
+[evolution]
+mode = "skill_only"
+iterations = 1
+frontier_size = 1
+concurrency = 1
+no_improvement_limit = 1
+failure_samples = 2
+
+[dataset]
+path = "data/officeqa_sample.csv"
+question_column = "question"
+ground_truth_column = "answer"
+category_column = "difficulty"
+train_ratio = 0.4
+val_ratio = 0.2
+
+[scorer]
+type = "multi_tolerance"
